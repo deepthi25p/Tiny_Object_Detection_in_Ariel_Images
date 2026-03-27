@@ -1,78 +1,77 @@
-# 🚁 Tiny Object Detection in Aerial Images
+🚁 Tiny Object Detection in Aerial Images
+📌 Abstract
 
-A deep learning-based Computer Vision project focused on detecting **small objects** (vehicles, pedestrians) in aerial imagery using YOLOv8. This project improves detection performance using **image tiling techniques** and provides a **dark-themed interactive UI**.
+Detecting small-scale objects in aerial imagery remains a challenging problem in Computer Vision due to scale variation, low resolution, and dense object distributions. This project investigates the effectiveness of scale-aware inference techniques, specifically image tiling, in improving the detection performance of deep learning models.
 
----
+We implement a YOLOv8-based detection pipeline and analyze how tiling impacts the model’s ability to detect tiny objects in aerial datasets.
 
-## 📌 Problem Statement
+🔍 Problem Statement
 
-Detecting small objects in aerial images is challenging due to:
-- Low resolution of objects
-- Large scene coverage
-- Dense object distribution
+Object detection models often underperform on aerial imagery because:
 
-Traditional object detection models often fail to accurately detect tiny objects.
+Objects occupy very few pixels
+Scene complexity is significantly higher than standard datasets
+Models are biased toward larger object scales
 
----
+This leads to:
 
-## 🎯 Objective
+Low recall for small objects
+Missed detections in dense regions
+🎯 Research Objective
 
-- Build an object detection model for aerial images
-- Improve detection of small objects
-- Deploy an interactive UI for real-time predictions
+This work aims to:
 
----
+Evaluate the limitations of standard object detection models on small objects
+Investigate image tiling as a scale-aware enhancement technique
+Quantitatively and qualitatively compare detection performance
+Analyze improvements in detecting small objects
+🧠 Methodology
+Dataset
+VisDrone Dataset (benchmark dataset for aerial object detection)
+Model
+YOLOv8 (Ultralytics)
+Selected for its balance between speed and accuracy in real-time detection tasks.
+Experimental Setup
 
-## 🧠 Approach
+Two inference strategies were evaluated:
 
-### 🔹 Model
-- YOLOv8 (Ultralytics)
+Baseline Approach
+Direct inference on full-resolution images
+Tiling-Based Approach
+Images divided into smaller patches
+Detection performed on each patch
+Results aggregated to form final predictions
+🔬 Experiments & Analysis
+Key Observation
+Approach	Result
+Baseline YOLOv8	Fails to detect several small objects
+Tiling-based Inference	Improved detection and higher object recall
+Insight
+Tiling increases the effective resolution of small objects
+Helps the model focus on localized regions
+Reduces the impact of scale imbalance
+📊 Evaluation
+Qualitative comparison of detection outputs
+Observed improvement in:
+Number of detected objects
+Detection consistency in dense regions
 
-### 🔹 Dataset
-- VisDrone Dataset (Aerial imagery)
+(Note: Quantitative metrics such as mAP can be extended for deeper evaluation.)
 
-### 🔹 Key Techniques
-- Image tiling to enhance small object visibility
-- Data preprocessing and annotation conversion
-- Model training and evaluation using mAP
+🚀 Implementation
+Model: YOLOv8 (PyTorch-based)
+Interface: Gradio-based web UI
+Deployment: Hugging Face Spaces
+🌐 Live Demo
 
----
+👉 https://huggingface.co/spaces/Deepthi2005/TinyObjectDetection
 
-## 🔥 Key Features
+📈 Future Work
+Incorporate SAHI (Slicing Aided Hyper Inference) for optimized tiling
+Perform quantitative evaluation using mAP, Precision, Recall
+Compare with alternative architectures (DETR, Faster R-CNN)
+Explore super-resolution techniques for preprocessing
+Optimize inference for real-time deployment
+📚 Conclusion
 
-✔ Tiny object detection using YOLOv8  
-✔ Image tiling for improved performance  
-✔ Dark-themed interactive UI (Gradio)  
-✔ Deployed on Hugging Face Spaces  
-
----
-
-## 🧪 Results
-
-| Method            | Performance |
-|------------------|------------|
-| Standard YOLOv8  | Misses small objects |
-| With Tiling      | Improved detection accuracy |
-
----
-
-## 🌐 Live Demo
-
-👉https://huggingface.co/spaces/Deepthi2005/TinyObjectDetection
-
----
-
-## 🖼️ Sample Results
-
-### Input Image
-(Add original image here)
-
-### Output (Detection)
-(Add output image here)
-
----
-
-## ⚙️ Installation
-
-```bash
-pip install ultralytics gradio opencv-python
+This study demonstrates that scale-aware techniques such as image tiling can significantly improve small object detection in aerial imagery. The findings highlight the importance of adapting inference strategies to address scale-related challenges in Computer Vision tasks.
