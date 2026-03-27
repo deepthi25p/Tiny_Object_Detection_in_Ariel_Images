@@ -1,0 +1,78 @@
+# 🚁 Tiny Object Detection in Aerial Images
+
+A deep learning-based Computer Vision project focused on detecting **small objects** (vehicles, pedestrians) in aerial imagery using YOLOv8. This project improves detection performance using **image tiling techniques** and provides a **dark-themed interactive UI**.
+
+---
+
+## 📌 Problem Statement
+
+Detecting small objects in aerial images is challenging due to:
+- Low resolution of objects
+- Large scene coverage
+- Dense object distribution
+
+Traditional object detection models often fail to accurately detect tiny objects.
+
+---
+
+## 🎯 Objective
+
+- Build an object detection model for aerial images
+- Improve detection of small objects
+- Deploy an interactive UI for real-time predictions
+
+---
+
+## 🧠 Approach
+
+### 🔹 Model
+- YOLOv8 (Ultralytics)
+
+### 🔹 Dataset
+- VisDrone Dataset (Aerial imagery)
+
+### 🔹 Key Techniques
+- Image tiling to enhance small object visibility
+- Data preprocessing and annotation conversion
+- Model training and evaluation using mAP
+
+---
+
+## 🔥 Key Features
+
+✔ Tiny object detection using YOLOv8  
+✔ Image tiling for improved performance  
+✔ Dark-themed interactive UI (Gradio)  
+✔ Deployed on Hugging Face Spaces  
+
+---
+
+## 🧪 Results
+
+| Method            | Performance |
+|------------------|------------|
+| Standard YOLOv8  | Misses small objects |
+| With Tiling      | Improved detection accuracy |
+
+---
+
+## 🌐 Live Demo
+
+👉https://huggingface.co/spaces/Deepthi2005/TinyObjectDetection
+
+---
+
+## 🖼️ Sample Results
+
+### Input Image
+(Add original image here)
+
+### Output (Detection)
+(Add output image here)
+
+---
+
+## ⚙️ Installation
+
+```bash
+pip install ultralytics gradio opencv-python
